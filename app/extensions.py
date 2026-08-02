@@ -6,7 +6,7 @@ from flask_migrate import Migrate
 db = SQLAlchemy()
 
 # Login manager
-# login_manager = LoginManager()
+login_manager = LoginManager()
 
 # Database migration manager
 migrate = Migrate()
