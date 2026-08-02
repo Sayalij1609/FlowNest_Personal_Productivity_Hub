@@ -2,8 +2,100 @@
 
 {% block content %}
 
-<h1>Welcome to FlowNest</h1>
+<div class="page-wrapper">
+    <div class="page-content">
 
-<p>Your productivity journey starts here.</p>
+        <!-- Hero Section -->
+        <section class="hero">
+
+            <div class="hero-badge fade-in">
+                <span class="dot"></span>
+                Your Productivity Hub
+            </div>
+
+            <h1 class="fade-in fade-in-delay-1">
+                Organize Your Life<br>
+                with <span class="gradient-text">FlowNest</span>
+            </h1>
+
+            <p class="hero-subtitle fade-in fade-in-delay-2">
+                A beautiful, all-in-one workspace to manage your tasks, capture notes,
+                build habits, and stay on top of your schedule — effortlessly.
+            </p>
+
+            <div class="hero-actions fade-in fade-in-delay-3">
+                <a href="{{ url_for('auth.register') }}" class="btn btn-primary btn-lg">
+                    Get Started Free
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+                <a href="{{ url_for('auth.login') }}" class="btn btn-outline btn-lg">
+                    Login
+                </a>
+            </div>
+
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <h2 class="section-title fade-in">Everything You Need</h2>
+            <p class="section-subtitle fade-in fade-in-delay-1">Powerful features to supercharge your productivity</p>
+
+            <div class="features-grid">
+
+                <div class="glass-card feature-card fade-in fade-in-delay-1">
+                    <div class="feature-icon icon-indigo">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 11l3 3L22 4"></path>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                        </svg>
+                    </div>
+                    <h3>Task Management</h3>
+                    <p>Organize, prioritize, and track your tasks with an intuitive drag-and-drop interface.</p>
+                </div>
+
+                <div class="glass-card feature-card fade-in fade-in-delay-2">
+                    <div class="feature-icon icon-cyan">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                        </svg>
+                    </div>
+                    <h3>Smart Notes</h3>
+                    <p>Capture ideas instantly with rich-text notes that you can organize and search.</p>
+                </div>
+
+                <div class="glass-card feature-card fade-in fade-in-delay-3">
+                    <div class="feature-icon icon-green">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                        </svg>
+                    </div>
+                    <h3>Habit Tracker</h3>
+                    <p>Build positive habits with streaks, daily check-ins, and progress visualization.</p>
+                </div>
+
+                <div class="glass-card feature-card fade-in fade-in-delay-4">
+                    <div class="feature-icon icon-amber">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </div>
+                    <h3>Calendar View</h3>
+                    <p>See your schedule at a glance with a beautifully designed calendar integration.</p>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+</div>
 
 {% endblock %}
