@@ -13,6 +13,7 @@ auth = Blueprint(
     url_prefix="/auth"
 )
 
+# Registeration route 
 @auth.route("/register", methods=["GET", "POST"])
 def register():
 
@@ -73,6 +74,7 @@ def register():
         form=form
     )
 
+# Login Route
 @auth.route("/login", methods=["GET", "POST"])
 def login():
 
@@ -102,8 +104,8 @@ def login():
                 "success"
             )
 
-            return redirect(url_for("dashboard.home")
-)
+            return redirect(url_for("dashboard.home"))
+
 
         flash(
             "Invalid email or password.",
@@ -115,6 +117,7 @@ def login():
         form=form
     )
 
+# Logout route
 @auth.route("/logout")
 @login_required
 def logout():
