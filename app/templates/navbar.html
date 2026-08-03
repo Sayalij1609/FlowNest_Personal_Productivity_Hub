@@ -1,7 +1,7 @@
 <nav class="navbar" id="main-navbar">
 
     <!-- Brand -->
-    <a href="{{ url_for('main.home') }}" class="nav-brand">
+    <a href="{% if current_user.is_authenticated %}{{ url_for('dashboard.home') }}{% else %}{{ url_for('main.home') }}{% endif %}" class="nav-brand">
         <div class="nav-brand-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round">
@@ -15,13 +15,16 @@
 
     <!-- Nav Links -->
     <ul class="nav-links">
-        <li><a href="{{ url_for('main.home') }}">Home</a></li>
         {% if current_user.is_authenticated %}
-        <li><a href="{{ url_for('dashboard.home') }}">Dashboard</a></li>
+        <li><a href="{{ url_for('dashboard.home') }}" class="{% if request.endpoint == 'dashboard.home' %}active{% endif %}">Dashboard</a></li>
+        <li><a href="{{ url_for('tasks.list_tasks') }}" class="{% if request.endpoint and 'tasks' in request.endpoint %}active{% endif %}">Tasks</a></li>
+        <li><a href="{{ url_for('categories.list_categories') }}" class="{% if request.endpoint and 'categories' in request.endpoint %}active{% endif %}">Categories</a></li>
+        {% else %}
+        <li><a href="{{ url_for('main.home') }}">Home</a></li>
         {% endif %}
     </ul>
 
-    <!-- Auth Actions -->
+    <!-- Right Actions -->
     <div class="nav-actions">
         <!-- Theme Toggle -->
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
@@ -60,17 +63,6 @@
         <a href="{{ url_for('auth.register') }}" class="btn btn-primary btn-sm">Get Started</a>
         {% endif %}
     </div>
-    <a href="{{ url_for('tasks.list_tasks') }}" class="nav-link">
-
-        My Tasks
-
-    </a>
-
-    <a href="{{ url_for('tasks.archived_tasks') }}" class="nav-link">
-
-        Archived Tasks
-
-    </a>
 
     <!-- Mobile Toggle -->
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
@@ -81,7 +73,5 @@
             <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
     </button>
-
-
 
 </nav>
