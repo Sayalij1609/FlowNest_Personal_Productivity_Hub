@@ -7,3 +7,5 @@ python-dotenv
 pillow 
 werkzeug
 email-validator
+APScheduler
+Flask-Mail
