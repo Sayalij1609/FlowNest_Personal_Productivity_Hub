@@ -29,6 +29,14 @@ class Config:
         "uploads"
     )
     
-
     # Maximum upload size (16 MB)
     MAX_CONTENT_LENGTH = 16 * 1024 * 1024
+
+    MAIL_SERVER = "smtp.gmail.com"
+    MAIL_PORT = 587
+    MAIL_USE_TLS = True
+
+    MAIL_USERNAME = os.getenv("MAIL_USERNAME")
+    MAIL_PASSWORD = os.getenv("MAIL_PASSWORD")
+
+    MAIL_DEFAULT_SENDER = MAIL_USERNAME
