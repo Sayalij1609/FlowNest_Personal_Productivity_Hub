@@ -36,15 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ─── 5. MOBILE NAV TOGGLE ────────────────────────────────────────
-  const navToggle = document.querySelector('.nav-toggle');
-  if (navToggle && navbar) {
+  const navToggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  if (navToggle && navLinks) {
     navToggle.addEventListener('click', () => {
-      navbar.classList.toggle('nav-open');
-
-      const sidebar = document.querySelector('.sidebar');
-      if (sidebar) {
-        sidebar.classList.toggle('sidebar-open');
-      }
+      navLinks.classList.toggle('open');
     });
   }
 
