@@ -17,7 +17,10 @@ class Config:
     SECRET_KEY = os.getenv("SECRET_KEY")
 
     # Database URI
-    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI = os.getenv(
+    "DATABASE_URL",
+    "sqlite:///" + os.path.join(BASE_DIR, "database.db")
+    )
 
     # Disable unnecessary tracking
     SQLALCHEMY_TRACK_MODIFICATIONS = False
