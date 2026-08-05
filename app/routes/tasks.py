@@ -9,6 +9,7 @@ from datetime import date
 import os
 from werkzeug.utils import secure_filename
 from app.utils import allowed_file
+from app.services.notification_service import create_notification
 
 tasks = Blueprint(
     "tasks",
@@ -84,12 +85,21 @@ def create_task():
                 status="Pending",
                 attachment=filename,
                 user_id=current_user.id,
-                category_id=form.category.data
+                category_id=form.category.data,
+                
 
             )
 
         db.session.add(task)
         db.session.commit()
+
+        create_notification(
+
+        current_user,
+
+        f'Task "{task.title}" created successfully.'
+
+        )
 
         flash(
             "Task created successfully!",
@@ -312,6 +322,14 @@ def delete_task(task_id):
 
     db.session.commit()
 
+    create_notification(
+
+            current_user,
+
+            f'Task "{task.title}" deleted.'
+
+    )
+
     flash(
         "Task deleted successfully!",
         "success"
@@ -334,6 +352,14 @@ def complete_task(task_id):
     task.status = "Completed"
 
     db.session.commit()
+
+    create_notification(
+
+        current_user,
+
+        f'Task "{task.title}" completed.'
+
+    )
 
     flash(
         "Task marked as completed!",
