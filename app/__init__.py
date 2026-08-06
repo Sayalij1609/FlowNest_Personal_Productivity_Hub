@@ -11,9 +11,10 @@ from app.routes.notes import notes
 from app.routes.calendar import calendar_bp
 from app.routes.stats import stats
 from app.routes.profile import profile
-from app.services.scheduler import scheduler
 from app.routes.notifications import notifications
-from app.services.scheduler import start_scheduler
+from app.routes.reminders import reminder_bp
+
+
 
 
 
@@ -37,7 +38,7 @@ def create_app():
     # Import models
     from app import models
 
-    start_scheduler(app)
+    
 
     # Register blueprints
     app.register_blueprint(main)
@@ -51,5 +52,6 @@ def create_app():
     app.register_blueprint(stats)
     app.register_blueprint(profile)
     app.register_blueprint(notifications)
+    app.register_blueprint(reminder_bp)
    
     return app
