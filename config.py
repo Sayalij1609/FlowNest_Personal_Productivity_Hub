@@ -19,7 +19,7 @@ class Config:
     # Database URI
     SQLALCHEMY_DATABASE_URI = os.getenv(
     "DATABASE_URL",
-    "sqlite:///" + os.path.join(BASE_DIR, "database.db")
+    "sqlite:///" + os.path.join(BASE_DIR, "instance", "database.db")
     )
 
     # Disable unnecessary tracking
@@ -34,6 +34,8 @@ class Config:
     
     # Maximum upload size (16 MB)
     MAX_CONTENT_LENGTH = 16 * 1024 * 1024
+
+    REMINDER_TOKEN = os.getenv("REMINDER_TOKEN")
 
     MAIL_SERVER = "smtp.gmail.com"
     MAIL_PORT = 587
