@@ -10,3 +10,4 @@ email-validator
 Flask-Mail
 gunicorn
 psycopg2-binary
+APScheduler

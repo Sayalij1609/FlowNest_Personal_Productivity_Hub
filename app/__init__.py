@@ -13,6 +13,7 @@ from app.routes.stats import stats
 from app.routes.profile import profile
 from app.routes.notifications import notifications
 from app.routes.reminders import reminder_bp
+from app.services.scheduler import start_scheduler
 
 
 
@@ -38,6 +39,8 @@ def create_app():
     # Import models
     from app import models
 
+    # Start background scheduler for email reminders
+    start_scheduler(app)
     
 
     # Register blueprints
